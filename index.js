@@ -57,8 +57,13 @@ async function run() {
       const result = await taskCollection.find().toArray();
       res.send(result);
     })
-    // Update task order endpoint
-   // Example server code
+    app.delete('/task/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) }
+      const result = await taskCollection.deleteOne(query);
+      res.send(result);
+    })
+  
 app.put('/task/status', async (req, res) => {
   const { updatedTasks } = req.body;
 
