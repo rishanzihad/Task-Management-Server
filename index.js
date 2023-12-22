@@ -57,6 +57,7 @@ async function run() {
         const result = await taskCollection.find().toArray();
         res.send(result);
       })
+     
       app.post('/users', async (req, res) => {
         const user = req.body;
       
@@ -83,9 +84,9 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send('camp is running')
+    res.send('Task is running')
   })
   
   app.listen(port, () => {
-    console.log(`Medical Camp is Running on port ${port}`);
+    console.log(`Task is Running ${port}`);
   })
